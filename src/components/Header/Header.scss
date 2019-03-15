@@ -3,5 +3,8 @@ $green: #0aff21;
 h2{
     span{
         color: $green;
+        & i {
+            color: darken($green, 10%);
+        }
     }
 }
