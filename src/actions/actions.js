@@ -1,8 +1,15 @@
-import {GET_DATA} from "../consts/constants";
+import {GET_DATA, SET_PERSON_INFO} from "../consts/constants";
 
 export const acGetData = (track) => {
-    return{
+    return {
         type: GET_DATA,
         track
     }
+};
+
+export const acSetPersonInfo = (data) => {
+   return{
+       type: SET_PERSON_INFO,
+       personInfo: data
+   }
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 import {connect} from 'react-redux';
-import {acGetData} from "../../actions/actions";
+import {acGetData, acSetPersonInfo} from "../../actions/actions";
 
 class Header extends React.Component{
 
@@ -10,11 +10,19 @@ class Header extends React.Component{
 
         this.props.getData(newTrack)
     };
+    addPersonInfo = () => {
+
+        this.props.setInfo();
+    };
 
     render() {
-        console.log('data',this.props.data);
+        console.log('const a',this.props);
         return(
-            <h2 onClick={this.test}>Hello <span><i>ttt</i>test</span></h2>
+            <React.Fragment>
+                <h2 onClick={this.test}>Hello <span><i>ttt</i>test</span></h2>
+                <button onClick={this.addPersonInfo}>add person info</button>
+            </React.Fragment>
+
         )
     }
 }
@@ -27,7 +35,17 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        getData: (track) => dispatch(acGetData(track))
+        getData: (track) => dispatch(acGetData(track)),
+        setInfo: () => {
+            fetch('./src/data/test.json')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(data => {
+                    dispatch(acSetPersonInfo(data))
+                })
+                .catch( alert );
+        }
     }
 };
 

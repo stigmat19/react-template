@@ -1,4 +1,4 @@
-import {GET_DATA} from "../consts/constants";
+import {GET_DATA, SET_PERSON_INFO} from "../consts/constants";
 
 const initialState = [
     'My home playlist',
@@ -10,6 +10,11 @@ const rdGetData = (state = initialState, action) => {
         case GET_DATA:{
             return{
                 ...state, test: action.track
+            };
+        }
+        case SET_PERSON_INFO:{
+            return{
+                ...state, personInfo: action.personInfo
             };
         }
         default: return state;
