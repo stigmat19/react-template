@@ -33,6 +33,7 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-owl-carousel2": "^0.3.0",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1"
   }
